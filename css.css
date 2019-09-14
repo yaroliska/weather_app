@@ -1,0 +1,31 @@
+.mainBox {
+    background: lightgray;
+    width: 50%;
+    margin-left: 25%;
+    height: 500px;
+}
+
+.mainTitle {
+    background: lightgray;
+    height: 50px;
+    font-family: cursive;
+    font-size: 40px;
+    text-align: center;
+}
+
+.boxForWeather {
+    background: darkgray;
+    height: 400px;
+    margin: 25px;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-around;
+}
+
+.dayOfWeather {
+    background: tomato;
+    /* height: 300px; */
+    width: 200px;
+    margin: 10px;
+}
