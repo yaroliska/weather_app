@@ -19,13 +19,18 @@ let data = [
           "rain":true
           }
       ];
+
 let jsonData = JSON.stringify(data);
 let weather = JSON.parse(jsonData);
 
-console.log(weather);
+for (let i = 0; i < weather.length; i++) {
+    console.log(weather[i]);
 
-for(object of weather) {
-    console.log(object);
     let boxForDate = document.createElement("div");
-    
+    let box = document.getElementById(`${i+1}_item`);
+    box.append(boxForDate);
+    boxForDate.append(weather[i]);
 }
+    
+    
+    
