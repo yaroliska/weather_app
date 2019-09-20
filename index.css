@@ -4,8 +4,8 @@
     flex-direction: column;
     justify-content: center;
     padding: 5px;
-    width: 50%;
-    margin-left: 25%;
+    width: 40%;
+    margin-left: 31%;
 }
 
 .weatherBox__title {
@@ -17,7 +17,6 @@
 }
 
 .weatherBox__daysContainer {
-    background: rgba(169, 169, 169, 0.425);
     margin: 15px;
     display: flex;
     flex-direction: row;
@@ -26,8 +25,52 @@
 }
 
 .weatherBox__daysContainer__item {
-    background: tomato;
+    background: white;
     height: 250px;
     width: 150px;
     margin: 15px 2px 15px 0px;
+}
+
+.weatherBox__daysContainer__item__week {
+    display: flex;
+    justify-content: center;
+    font-family: cursive;
+    font-size: 13px;
+    margin: 5px;
+}
+
+.weatherBox__daysContainer__item__day {
+    display: flex;
+    justify-content: center;
+    font-family: cursive;
+    font-size: 20px;
+    font-weight: bold;
+    margin: 5px;
+}
+
+.weatherBox__daysContainer__item__temperature__day {
+    display: flex;
+    justify-content: center;
+    font-family: cursive;
+    font-size: 20px;
+    font-weight: bold;
+    margin: 65px 5px 5px 5px;
+}
+
+.weatherBox__daysContainer__item__temperature__night {
+    display: flex;
+    justify-content: center;
+    font-family: cursive;
+    font-size: 15px;
+    margin: 5px;
+    color: rgb(114, 114, 114);
+}
+
+.weatherBox__daysContainer__item__temperature__precipitation {
+    display: flex;
+    justify-content: center;
+    font-family: cursive;
+    font-size: 15px;
+    margin: 20px 10px 5px 10px;
+    color: rgb(114, 114, 114);
 }

@@ -1,24 +1,24 @@
 let data = [
-        {"date":1568917988603,
+        {"date":1568981502816,
          "temperature":{"night":-4,"day":10},
          "cloudiness":"Облачно",
          "snow":false,
          "rain":true},
 
         {
-        "date":1538337600000,
+        "date":1569024000000,
         "temperature":{"night":-3,"day":2},
         "cloudiness":"Ясно",
         "snow":false,
         "rain":false},
       
-        {"date":1538424000000,
+        {"date":1569110400000,
          "temperature":{"night":0,"day":4},
          "cloudiness":"Облачно",
          "snow":false,
          "rain":true},
          
-         {"date":1538510400000,
+         {"date":1569196800000,
           "temperature":{"night":0,"day":1},
           "cloudiness":"Облачно",
           "snow":true,
@@ -34,22 +34,23 @@ function dayOfWeek(day, i) {
     let dateNow = new Date();
     let dayWeek = date.getDay();
     if (dateNow.getFullYear() == date.getFullYear() && dateNow.getMonth() == date.getMonth() && dateNow.getDate() == date.getDate()) {
-        dayWeek = "сегодня";
+        dayWeek = "Сегодня";
     }
     switch(dayWeek) {
-        case 0: dayWeek = "воскресенье"; break;
-        case 1: dayWeek = "понедельник"; break;
-        case 2: dayWeek = "вторник"; break;
-        case 3: dayWeek = "среда"; break;
-        case 4: dayWeek = "четверг"; break;
-        case 5: dayWeek = "пятница"; break;
-        case 6: dayWeek = "суббота"; break;
+        case 0: dayWeek = "Воскресенье"; break;
+        case 1: dayWeek = "Понедельник"; break;
+        case 2: dayWeek = "Вторник"; break;
+        case 3: dayWeek = "Среда"; break;
+        case 4: dayWeek = "Четверг"; break;
+        case 5: dayWeek = "Пятница"; break;
+        case 6: dayWeek = "Суббота"; break;
     }
     
     let boxForDayOfWeek = document.createElement("div");
     let box = document.getElementById(`${i+1}_item`);
     box.append(boxForDayOfWeek);
     boxForDayOfWeek.append(dayWeek);
+    boxForDayOfWeek.classList.add("weatherBox__daysContainer__item__week");
 }
 
 function dayOfMonth (day, i) {
@@ -69,10 +70,11 @@ function dayOfMonth (day, i) {
         case 10: month = "ноября"; break;
         case 11: month = "декабря"; break;
     }
-    let boxForDayOfWeek = document.createElement("div");
+    let boxForDayOfMonth = document.createElement("div");
     let box = document.getElementById(`${i+1}_item`);
-    box.append(boxForDayOfWeek);
-    boxForDayOfWeek.append(date.getDate() +" " + month);
+    box.append(boxForDayOfMonth);
+    boxForDayOfMonth.append(date.getDate() +" " + month);
+    boxForDayOfMonth.classList.add("weatherBox__daysContainer__item__day");
 }
 
 function temperatureDay(day, i) {
@@ -80,7 +82,8 @@ function temperatureDay(day, i) {
     let boxForTemperatureDay = document.createElement("div");
     let box = document.getElementById(`${i+1}_item`);
     box.append(boxForTemperatureDay);
-    boxForTemperatureDay.append("Днем +" + +temeprature);
+    boxForTemperatureDay.append("днем +" + +temeprature + '\u00B0');
+    boxForTemperatureDay.classList.add("weatherBox__daysContainer__item__temperature__day");
 }
 
 function temperatureNight(day, i) {
@@ -88,28 +91,30 @@ function temperatureNight(day, i) {
     let boxForTemperatureNight = document.createElement("div");
     let box = document.getElementById(`${i+1}_item`);
     box.append(boxForTemperatureNight);
-    boxForTemperatureNight.append("Ночью " + +temeprature);
+    boxForTemperatureNight.append("ночью " + +temeprature + '\u00B0');
+    boxForTemperatureNight.classList.add("weatherBox__daysContainer__item__temperature__night");
 }
 
 function precipitation(day , i) {
+
+    let boxForPrecipitation = document.createElement("div");
     
     if (day.snow == false && day.rain == false) {
-        let boxForPrecipitation = document.createElement("div");
         let box = document.getElementById(`${i+1}_item`);
         box.append(boxForPrecipitation);
-        boxForPrecipitation.append("Без осадков");
+        boxForPrecipitation.append("без осадков");
     }
     else if (day.snow == false && day.rain == true) {
-        let boxForPrecipitation = document.createElement("div");
         let box = document.getElementById(`${i+1}_item`);
         box.append(boxForPrecipitation);
-        boxForPrecipitation.append("Дождь");
+        boxForPrecipitation.append("дождь");
     } else {
-        let boxForPrecipitation = document.createElement("div");
         let box = document.getElementById(`${i+1}_item`);
         box.append(boxForPrecipitation);
-        boxForPrecipitation.append("Дождь со снегом");
+        boxForPrecipitation.append("дождь со снегом");
     }
+    boxForPrecipitation.classList.add("weatherBox__daysContainer__item__temperature__precipitation");
+    
 }
 
 
@@ -122,6 +127,7 @@ for (let i = 0; i < weather.length; i++) {
     temperatureDay(weather[i], i);
     temperatureNight(weather[i], i);
     precipitation(weather[i], i);
+
 }
     
     
